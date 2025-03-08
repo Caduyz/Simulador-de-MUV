@@ -1,0 +1,138 @@
+body {
+    background-color: rgb(32, 32, 32);
+    height: 100dvh;
+    overflow: hidden;
+    color: white;
+}
+
+#graphContainers {
+    background-color: rgb(44, 44, 44);
+    height: 100dvh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#inputContainer {
+    position: fixed;
+    bottom: 20%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.valueInput {
+    outline: none;
+    height: 30px;
+    width: 100px;
+    border: 0;
+    border-radius: 7px;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#buttonsContainer {
+    position: fixed;
+    bottom: 5%;
+    right: 57%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.buttons {
+    height: 36px;
+    width: 270px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.buttons:hover {
+    transform: scale(1.05);
+    background-color: rgb(50, 50, 50);
+    border: 1px solid white;
+    color: white;
+}
+
+#simulationContainer {
+    height: 20%;
+    position: fixed;
+    left: 2%;
+    top: 5%;
+    width: 65.7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#course {
+    height: 9px;
+    width: 65.2%;
+    background-color: white;
+    border: 0;
+    border-radius: 0.4rem;
+    position: fixed;
+    top: 24%;
+}
+
+.yMark {
+    width: 7px;
+    border: 0;
+    border-radius: 0.4rem;
+    height: 60px;
+    background-color: white;
+    position: fixed;
+    top: 21.3%;
+}
+
+#halfCourse {
+    position: fixed;
+    top: 28%;
+    font-size: 24px;
+}
+
+#carSelector {
+    position: fixed;
+    left: 2%;
+    top: 2%;
+}
+
+.carIcon {
+    position: fixed;
+    width: 80px;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.carIcon:nth-child(1) {
+    top: 2%;
+    height: 30px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.carIcon:nth-child(2) {
+    left: 8%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#selectorBar {
+    width: 5%;
+    height: 100%;
+    background-color: rgb(50, 50, 50);
+    position: fixed;
+    top: 0;
+    right: 25%;
+    border-left: 8px solid rgb(40, 40, 40);
+}
