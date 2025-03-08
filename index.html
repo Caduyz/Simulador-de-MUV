@@ -8,41 +8,45 @@
 </head>
 <body>
     <div id="graphContainers">
-        <canvas id="speedChart" width="450" height="300"></canvas>
-        <canvas id="positionChart" width="450" height="300"></canvas>
-        <canvas id="accelChart" width="450" height="300"></canvas>
+        <canvas id="speedChart" width="440" height="300"></canvas>
+        <canvas id="positionChart" width="440" height="300"></canvas>
+        <canvas id="accelChart" width="440" height="300"></canvas>
     </div>
 
     <div id="selectorBar">
-
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/524/637/small_2x/red-sport-car-design-transparent-background-free-png.png" alt="carro 1" class="carIcon" onclick="modeloCarro(1)" id="car1">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/193/929/small_2x/vintage-car.png" alt="carro 2" class="carIcon" onclick="modeloCarro(2)" id="car2">
+        <img src="https://images.vexels.com/media/users/3/258907/isolated/preview/63b3084a2e3abf46c1ff1f1163278631-transporte-de-carro-esporte-amarelo.png" alt="carro 3" class="carIcon" onclick="modeloCarro(3)" id="car3">
+        <img src="https://images.vexels.com/media/users/3/243727/isolated/preview/961170707cab73907669cc9af41209fb-transporte-notebookdoodle-colorvinyl-cr-3.png" alt="carro 4" class="carIcon" onclick="modeloCarro(4)" id="car4">
     </div>
 
     <div id="inputContainer">
-        <label for="positionInput">Posição Inicial:</label>
-        <input type="number" class="valueInput" id="positionInput">
+        <label for="positionInput" oninput="moverCarro()">Posição Inicial:</label>
+        <input type="number" class="valueInput" id="positionInput" autocomplete="off">
         <label for="courseInput">Tamanho da Pista:</label>
-        <input type="number" class="valueInput" id="courseInput" oninput="alterarPista()">
+        <input type="number" class="valueInput" id="courseInput" oninput="alterarPista()" autocomplete="off">
         <label for="speedInput">Velocidade Inicial:</label>
-        <input type="number" class="valueInput" id="speedInput">
+        <input type="number" class="valueInput" id="speedInput" autocomplete="off">
         <label for="accelInput">Aceleração:</label>
-        <input type="number" class="valueInput" id="accelInput">
+        <input type="number" class="valueInput" id="accelInput" autocomplete="off">
     </div>
 
     <div id="buttonsContainer">
         <button id="startBttn" class="buttons" onclick="start()">Começar</button>
-        <button id="stopBttn" class="buttons" onclick="stop()">Parar</button>
+        <button id="stopBttn" class="buttons" onclick="stop()">Parar/Retomar</button>
+        <button id="resetBttn" class="buttons" onclick="reset()">Resetar</button>
     </div>
 
     <div id="simulationContainer">
         <hr id="course">
         <canvas id="canvas"></canvas>
         <hr id="mark1" class="yMark">
-        <p id="halfCourse">0m</p>
+        <p id="halfCourse">50m</p>
     </div>
 
-    <div id="carSelector">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/524/637/small_2x/red-sport-car-design-transparent-background-free-png.png" alt="carro 1" class="carIcon" onclick="modeloCarro(1)" id="car1">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/193/929/small_2x/vintage-car.png" alt="carro 2" class="carIcon" onclick="modeloCarro(2)" id="car2">
+    <div id="timersContainer">
+        <span id="cronometroTotal" class="timer">0.000s</span>
+        <span id="cronometroMeio" class="timer">0.000s</span>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
