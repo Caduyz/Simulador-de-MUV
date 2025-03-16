@@ -5,45 +5,82 @@ body {
     color: white;
 }
 
-#graphContainers {
-    background-color: rgb(44, 44, 44);
-    height: 100dvh;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
+#trackLine {
+    width: 90%;
+    height: 6px;
+    background-color: white;
+    border: 0px;
+    border-radius: 100px;
     position: fixed;
-    right: 0;
-    top: 0;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-#inputContainer {
+#canvas {
     position: fixed;
-    bottom: 20%;
-    left: 2%;
-    display: flex;
-    flex-direction: column;
+    top: 5%;
+    width: 88%;
+    height: 21%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .valueInput {
-    outline: none;
-    height: 30px;
     width: 160px;
-    border: 0;
-    border-radius: 7px;
-    padding: 5px;
-    font-size: 16px;
+    height: 36px;
+    outline: none;
+    padding-left: 9px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 1px;
     margin-bottom: 20px;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+.valueInput:focus {
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.6);
+}
+
+#inputContainer {
+    height: 30%;
+    width: 15%;
+    bottom: 22.5%;
+    left: 3%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+label {
+    font-size: 14px;
+}
+
+#graphContainers {
+    height: 35%;
+    width: 75%;
+    position: fixed;
+    bottom: 20%;
+    right: 4%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #buttonsContainer {
     position: fixed;
     bottom: 5%;
-    right: 39.5%;
+    width: 47.5%;
+    justify-content: space-between;
     display: flex;
-    gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .buttons {
@@ -63,111 +100,105 @@ body {
     color: white;
 }
 
-#simulationContainer {
-    height: 20%;
-    position: fixed;
-    left: 2%;
-    top: 5%;
-    width: 65.7%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#course {
-    height: 9px;
-    width: 65.2%;
-    background-color: white;
-    border: 0;
-    border-radius: 0.4rem;
-    position: fixed;
-    top: 24%;
-}
-
-.yMark {
-    width: 7px;
-    border: 0;
-    border-radius: 0.4rem;
-    height: 60px;
-    background-color: white;
-    position: fixed;
-    top: 21.3%;
-}
-
-#halfCourse {
-    position: fixed;
-    top: 28%;
-    font-size: 24px;
-}
-
-.carIcon {
-    width: 80%;
-    cursor: pointer;
-    margin-top: 30px;
-}
-
-.carIcon.active {
-    filter: 
-    drop-shadow(0 0 2px white) 
-    drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-
-}
-
-.carIcon:nth-child(1) {
-    margin-top: 40px;
-}
-
-.carIcon:nth-child(3) {
-    height: 80px;
-    width: 75px;
-    position: fixed;
-    top: 9%;
-    transform: scaleX(-1);
-}
-
-.carIcon:nth-child(4) {
-    height: 80px;
-    width: 75px;
-    position: fixed;
-    top: 14%;
-}
-
-#selectorBar {
-    width: 5%;
-    height: 100%;
-    background-color: rgb(50, 50, 50);
-    position: fixed;
-    top: 0;
-    right: 25%;
-    border-left: 8px solid rgb(40, 40, 40);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.timer {
-    border: 4px solid rgb(50, 50, 50);
-    padding: 12px;
-    border-radius: 7px;
-    padding-inline: 20px;
-    font-size: 21px;
-    color: red;
-    background-color: rgb(40, 40, 40);
-}
-
-#timersContainer {
-    position: fixed;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    right: 40%;
-}
-
 .buttons.hover {
     transition: all .175s ease-in-out;
     transform: scale(1.05);
     background-color: rgb(50, 50, 50);
     border: 1px solid white;
     color: white;
+}
+
+#speed {
+    position: fixed;
+    right: 58.5%;
+}
+
+#position {
+    position: fixed;
+    right: 31%;
+}
+
+
+.timer {
+    height: 44px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 1px;
+    width: 186px;
+    text-align: center;
+    color: red;
+    font-size: 26px;
+    padding-top: 10px;
+}
+
+#timers {
+    top: 29%;
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    transform: translateX(-50%);
+}
+
+#halfTrackLength {
+    position: fixed;
+    left: 42.95%;
+    top: 100%;
+    transform: translateX(-50%);
+    font-size: 27px;
+    height: 34px;
+    width: 186px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 1px;
+    text-align: center;
+}
+
+#trackLength {
+    position: fixed;
+    left: 57.05%;
+    transform: translateX(-50%);
+    font-size: 27px;
+    top: 100%;
+    height: 34px;
+    width: 186px;
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 1px;
+    text-align: center;
+}
+
+#carSelector {
+    width: 90%;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 25px;
+    top: 2%;
+}
+
+.car {
+    width: 90px;
+    height: auto;
+    border: none;
+    cursor: pointer;
+}
+
+#carro1 {
+    transform: scale(-1, 1);
+    width: 94px;
+    height: auto;
+}
+
+#carro3 {
+    width: 80px;
+    height: 27px;
+    margin-top: 2.2%;
+}
+
+.car.active {
+    filter: 
+    drop-shadow(0 0 2px white) 
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
 }

@@ -8,45 +8,44 @@
 </head>
 <body>
     <div id="graphContainers">
-        <canvas id="speedChart" width="440" height="300"></canvas>
-        <canvas id="positionChart" width="440" height="300"></canvas>
-        <canvas id="accelChart" width="440" height="300"></canvas>
+        <canvas id="speedChart" width="380" height="340"></canvas>
+        <span id="speed">0m/s</span>
+        <canvas id="positionChart" width="380" height="340"></canvas>
+        <span id="position">0m</span>
+        <canvas id="accelChart" width="380" height="340"></canvas>
     </div>
 
-    <div id="selectorBar">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/524/637/small_2x/red-sport-car-design-transparent-background-free-png.png" alt="carro 1" class="carIcon" onclick="modeloCarro(1)" id="car1">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/193/929/small_2x/vintage-car.png" alt="carro 2" class="carIcon" onclick="modeloCarro(2)" id="car2">
-        <img src="https://images.vexels.com/media/users/3/258907/isolated/preview/63b3084a2e3abf46c1ff1f1163278631-transporte-de-carro-esporte-amarelo.png" alt="carro 3" class="carIcon" onclick="modeloCarro(3)" id="car3">
-        <img src="https://images.vexels.com/media/users/3/243727/isolated/preview/961170707cab73907669cc9af41209fb-transporte-notebookdoodle-colorvinyl-cr-3.png" alt="carro 4" class="carIcon" onclick="modeloCarro(4)" id="car4">
-    </div>
+    <canvas id="canvas"></canvas>
+    <hr id="trackLine">
 
     <div id="inputContainer">
-        <label for="positionInput" oninput="moverCarro()">Posição Inicial:</label>
-        <input type="number" class="valueInput" id="positionInput" autocomplete="off">
-        <label for="courseInput">Tamanho da Pista:</label>
-        <input type="number" class="valueInput" id="courseInput" oninput="alterarPista()" autocomplete="off">
-        <label for="speedInput">Velocidade Inicial:</label>
-        <input type="number" class="valueInput" id="speedInput" autocomplete="off">
-        <label for="accelInput">Aceleração:</label>
-        <input type="number" class="valueInput" id="accelInput" autocomplete="off">
+        <label for="posInput">Posição Inicial (m)</label>
+        <input type="number" id="posInput" class="valueInput" oninput="moverCarro()">
+        <label for="trackInput">Tamanho da Pista (m)</label>
+        <input type="number" id="trackInput" class="valueInput" oninput="moverCarro()">
+        <label for="speedInput">Velocidade Inicial (m/s)</label>
+        <input type="number" id="speedInput" class="valueInput" oninput="moverCarro()">
+        <label for="accelInput">Aceleração (m/s²)</label>
+        <input type="number" id="accelInput" class="valueInput" oninput="moverCarro()">
     </div>
 
     <div id="buttonsContainer">
         <button id="startBttn" class="buttons" onclick="start()">Começar</button>
-        <button id="stopBttn" class="buttons" onclick="stop()">Parar/Retomar</button>
+        <button id="stopBttn" class="buttons" onclick="pause()">Parar/Retomar</button>
         <button id="resetBttn" class="buttons" onclick="reset()">Resetar</button>
     </div>
 
-    <div id="simulationContainer">
-        <hr id="course">
-        <canvas id="canvas"></canvas>
-        <hr id="mark1" class="yMark">
-        <p id="halfCourse">50m</p>
+    <div id="timers">
+        <div class="timer"><span id="halfTimer">0.000s</span></div>
+        <span id="halfTrackLength">50m</span>
+        <div class="timer"><span id="fullTimer" >0.000s</span></div>
+        <span id="trackLength">100m</span>
     </div>
 
-    <div id="timersContainer">
-        <span id="cronometroTotal" class="timer">0.000s</span>
-        <span id="cronometroMeio" class="timer">0.000s</span>
+    <div id="carSelector">
+        <img src="https://images.vexels.com/media/users/3/258907/isolated/preview/63b3084a2e3abf46c1ff1f1163278631-transporte-de-carro-esporte-amarelo.png" alt="carro1" class="car" id="carro1" onclick="selecionarCarro('carro1')">
+        <img src="https://images.vexels.com/media/users/3/243727/isolated/preview/961170707cab73907669cc9af41209fb-transporte-notebookdoodle-colorvinyl-cr-3.png" alt="carro2" class="car" id="carro2" onclick="selecionarCarro('carro2')">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/023/524/637/small_2x/red-sport-car-design-transparent-background-free-png.png" alt="carro3" class="car" id="carro3" onclick="selecionarCarro('carro3')">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
